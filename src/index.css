@@ -1,0 +1,40 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.section--height {
+  height: calc(100vh - 113px);
+}
+.category-sublist {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+.category-sublist__open {
+  max-height: 1000px;
+}
+.list-icon {
+  perspective: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s linear;
+}
+.list-icon__active {
+  transform: rotateX(180deg);
+}
+.snippet-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+.sublist-item:hover > .snippet-description {
+  max-height: 200px;
+}
+.category-sublist .sublist-item:last-child {
+  border-bottom: none;
+}
+.codeview-bgcolor {
+  background: rgb(40, 44, 52);
+}
+.pointer {
+  cursor: pointer;
+}
+

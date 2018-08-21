@@ -1,0 +1,90 @@
+{
+  "Adobe": [
+    {
+      "name": "Conditional first name",
+      "description": "Syntax to show first name or capitalise first letter of copy",
+      "html": "<%if (recipient.firstName.length > 2) { %><%= recipient.firstName %>, h<%} else { %>H<%} %>ow are you?"
+    },
+    {
+      "name": "Simple conditional IF statement",
+      "description": "Basic if statement to conditionally display content based on dynamic data",
+      "html": "<% if ( targetData.{value} == {condition} ) { %>\n  Show this content if value = condition\n<% } %>"
+    },
+    {
+      "name": "Sky ID",
+      "description": "Adobe tag to pull in customer Sky ID number",
+      "html": "<%= targetData.skyid %>"
+    },
+    {
+      "name": "Generic unsubscribe",
+      "description": "Unsubscribe from generic mailing list",
+      "html": "<%@ include option='NmsServer_URL' %>/webApp/sky_genericUnsubWebApp?id=<%=escapeUrl(recipient.cryptedId)%>&_service=sky_genericService"
+    },
+    {
+      "name": "View in browser link",
+      "description": "Adobe tag to generate VIB link url",
+      "html": "<%@ include view='MirrorPageUrl' %>"
+    },
+    {
+      "name": "Recipient email",
+      "description": "Adobe tag to pull in the recipients email address",
+      "html": "<%= recipient.email %>"
+    }
+  ],
+  "Semantic": [
+    {
+      "name": "Paragraph",
+      "description": "Paragraph element for copy",
+      "html": "<!-- Font styles can be inherited from parent <td> -->\n\n<p style=\"margin: 0;\"></p>"
+    },
+    {
+      "name": "Headers",
+      "description": "H1 - H6 elements for headings",
+      "html": "<!-- Font styles can be inherited from parent <td> -->\n\n<h1 style=\"margin: 0;\"></h1>\n\n<h2 style=\"margin: 0;\"></h2>\n\n<h3 style=\"margin: 0;\"></h3>\n\n<h4 style=\"margin: 0;\"></h4>\n\n<h5 style=\"margin: 0;\"></h5>\n\n<h6 style=\"margin: 0;\"></h6>"
+    },
+    {
+      "name": "Bullet points LI",
+      "description": "Image bullets using ul/li elements",
+      "html": "<style>\n /* add to embedded css */\n li {text-align:-webkit-match-parent; display:list-item;}\n</style>\n\n<!-- add below embedded css for Outlook only style improvement -->\n<!--[if mso]>\n <style>\n   li {text-align:-webkit-match-parent; display:list-item;text-indent: -1em;}\n <style>\n<![endif]-->\n\n<!-- Adjust left margin to improve alignment with conent above/below -->\n<ul style=\"margin: 0; padding: 0; text-align: left;\">\n <li style=\"margin:0 0 5px 0; list-style:disc;\">Lorem, ipsum dolor</li>\n <li style=\"margin:0 0 5px 0; list-style:disc;\">Lorem, ipsum dolor</li>\n <li style=\"margin:0 0 5px 0; list-style:disc;\">Lorem, ipsum dolor</li>\n <li style=\"margin:0 0 5px 0; list-style:disc;\">Lorem, ipsum dolor</li>\n</ul>"
+    }
+  ],
+  "Snippets": [
+    {
+      "name": "3 columns TH",
+      "description": "3 column layout using TH elements",
+      "html": "<style>\n /* add to mobile media query */\n .column {\n  width: 100% !important;\n  display: block !important;\n }\n</style>\n \n<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\" role=\"presentation\">\n <tr>\n  <th style=\"font-weight: normal;\" class=\"column\"></th>\n  <th style=\"font-weight: normal;\" class=\"column\"></th>\n  <th style=\"font-weight: normal;\" class=\"column\"></th>\n </tr>\n</table>"
+    },
+    {
+      "name": "Sky web fonts",
+      "description": "Sky web fonts",
+      "html": "<style>\n@media screen {\n  @font-face {\n    font-family: sky_textlight;\n    src: url(\"http://t.newsletter.contact.sky/res/sky_ids_mid_t/skytext-light-webfont.woff\");\n  }\n  @font-face {\n    font-family: sky_textregular;\n    src: url(\"http://t.newsletter.contact.sky/res/sky_ids_mid_t/skytext-regular-webfont.woff\");\n  }\n  @font-face {\n    font-family: sky_textmedium;\n    src: url(\"http://t.newsletter.contact.sky/res/sky_ids_mid_t/skytextmedium-regular-webfont.woff\");\n  }\n}\n</style>"
+    },
+    {
+      "name": "VML Background image",
+      "description": "Background image with VML for Outlook support. Also uses pt values for high dpi scaling",
+      "html": "<style>\n  /* Add to css within media query to allow background image to be swapped for mobile asset */\n  .bg-swap {\n    background-image: url('images/background-mob.png') !important;\n    background-size: 100% 100% !important;\n    width: 100% !important;\n    height: auto !important;\n  }\n</style>\n\n<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\" role=\"presentation\">\n  <tr>\n    <td background=\"images/background.png\" bgcolor=\"#e0dee9\" width=\"600\" height=\"550\" valign=\"top\" class=\"bg-swap\" style=\"width:600px;height:550px;\">\n      <!--[if gte mso 9]>\n      <v:image xmlns:v=\"urn:schemas-microsoft-com:vml\" style=\"width:450pt;height:412.5pt;\" src=\"images/background.png\" /> \n      <v:rect xmlns:v=\"urn:schemas-microsoft-com:vml\" fill=\"false\" stroke=\"false\" style=\"position: relative; width:450pt;height:412.5pt;\">\n      <v:textbox inset=\"0,0,0,0\"> \n      <![endif]-->\n      <div>\n        Build overlay content here.<br>\n        VML width/height set using pt values to allow for proper scaling on High DPI outlook\n      </div>\n      <!--[if gte mso 9]>\n        </v:textbox>\n      </v:rect>\n      <![endif]-->\n    </td>\n  </tr>\n</table>"
+    },
+    {
+      "name": "Image swap - desktop/mobile",
+      "description": "Show and hide images between desktop and mobile views",
+      "html": "<style>\n  /* Add styles to media query */\n  .mobilehide {\n    display: none !important;\n  }\n  .mobileshow {\n    display: block !important;\n  }\n  .img {\n    width: 100% !important;\n    height: auto !important;\n  }\n</style>\n\n<img src=\"desktop-image\" alt=\"\" width=\"\" style=\"display: block;\" border=\"0\" class=\"mobilehide\">\n\n<!--[if !mso]><!-- -->\n<img src=\"mobile-image\" alt=\"\" style=\"display: none;\" class=\"mobileshow img\">\n<!--<![endif]-->"
+    }
+  ],
+  "Client targeting": [
+    {
+      "name": "Webkit",
+      "description": "Target iOS devices, Apple Mail and webkit powered Outlook",
+      "html": "<style>\n@media screen and (-webkit-min-device-pixel-ratio: 0) {\n    @supports(color:#ffffff) {\n     /* Changing color to FOUR value hex will also hide from iOS 9 and Android 4.4 */\n    }\n}\n</style>"
+    },
+    {
+      "name": "MS Outlook",
+      "description": "Outlook conditionals to hide content or show only on Outlook",
+      "html": "<!-- HIDE FROM OUTLOOK -->\n<!--[if !mso]><!-- -->\n<!--<![endif]-->\n\n<!-- SHOW ONLY ON OUTLOOK -->\n<!--[if (gte mso 9)|(IE)]>\n<![endif]-->"
+    },
+    {
+      "name": "Gmail",
+      "description": "CSS hack to target Gmail, webmail and mobile",
+      "html": "<style>\n  u + #body .gmail {\n    display:block !important;\n  }\n</style>\n\n<!-- ID must match what's used in CSS -->\n<body id=\"body\">\n  <div class=\"gmail\" style=\"display:none;\">THIS IS GMAIL</div>\n</body>"
+    }
+  ]
+}
